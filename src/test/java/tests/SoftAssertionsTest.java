@@ -6,7 +6,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -20,9 +20,14 @@ public class SoftAssertionsTest {
         Configuration.pageLoadStrategy = "eager";
     }
 
+    @AfterEach
+    void afterEachTest() {
+        Selenide.closeWebDriver();
+    }
+
 
     @Test
-    void jUnit5SoftAssertionTest() {
+    void gitHubSelenideTest() {
         // открыть страницу Selenide в Github
         open("/selenide/selenide");
            //переход, поиск и проверка в wiki
@@ -32,8 +37,7 @@ public class SoftAssertionsTest {
               $("#wiki-pages-box").$(byText("SoftAssertions")).click();
               //проверка кода
         $("#wiki-pages-box").$(byText("SoftAssertions")).click();
-        $("#wiki-body").shouldHave(text(
-                "@ExtendWith({SoftAssertsExtension.class}) \n" +
+        $("#wiki-body").shouldHave(text("@ExtendWith({SoftAssertsExtension.class}) \n" +
                         "class Tests { \n" +
                         "@Test \n" +
                         "void test() { \n" +
@@ -45,8 +49,6 @@ public class SoftAssertionsTest {
                         "} \n" +
                         "} \n"));
     }
-    @AfterEach
-    void afterEachTest() {
-        Selenide.closeWebDriver();
-    }
+
+
 }
