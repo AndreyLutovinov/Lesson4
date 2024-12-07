@@ -21,7 +21,7 @@ public class SoftAssertionsTest {
 
 
     @Test
-    void hubSelenideTest() {
+    void githubSelenideTest() {
         open("/selenide/selenide");
         $("#wiki-tab").click();
         $("#wiki-pages-filter").setValue("SoftAssertions");
