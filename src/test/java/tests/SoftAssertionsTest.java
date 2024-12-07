@@ -17,12 +17,11 @@ public class SoftAssertionsTest {
         Configuration.baseUrl = "https://github.com";
         Configuration.pageLoadStrategy = "eager";
         Configuration.timeout = 4000;
-        Configuration.holdBrowserOpen = true;
     }
 
 
     @Test
-    void HubSelenideTest() {
+    void hubSelenideTest() {
         open("/selenide/selenide");
         $("#wiki-tab").click();
         $("#wiki-pages-filter").setValue("SoftAssertions");
